@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>This is the title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    </head>
+
+    <body>
+        
+    {% include 'snippets/base_css.html' %}
+    {% include 'snippets/header.html' %}
+
+    <!-- Body -->
+    <style type="text/css">
+        .main{
+            min-height: 100vh;
+            height: 100%;
+        }
+    </style>
+    <div class="main">
+        {% block content %}
+        
+        {% endblock content %}        
+    </div>
+    <!-- End Body -->
+
+    {% include 'snippets/footer.html' %}
+        
+    </body>
+
+</html>
