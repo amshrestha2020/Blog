@@ -7,6 +7,7 @@ from django.utils.text import slugify
 from django.conf import settings
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
+from django.utils import timezone
 
 
 def upload_location(instance, filename, **kwargs):
@@ -21,8 +22,8 @@ class BlogPost(models.Model):
     title             = models.CharField(max_length=50, null=False, blank=False)
     body              = models.TextField(max_length=5000, null=False, blank=False)
     image             = models.ImageField(upload_to=upload_location, null=False, blank=False)
-    date_published    = models.DateTimeField(auto_now_add=True, verbose_name="date published")
-    date_updated      = models.DateTimeField(auto_now=True, verbose_name="date updated")
+    created_at        = models.DateTimeField(default=timezone.now, verbose_name="created at")
+    updated_at        = models.DateTimeField(default=timezone.now, verbose_name="updated at")
     author            = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     slug              = models.SlugField(blank=True, unique=True)
 
